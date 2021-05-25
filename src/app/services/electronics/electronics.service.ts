@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Item} from '../../item';
+import { Product } from '../../product';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
@@ -11,15 +11,22 @@ export class ElectronicsService {
 
   constructor() { }
 
-  // getProducts(): Observable<Item[]>{
-    
+  // getProducts(): Observable<Product[]>{
+  //   return of();
   // }
 
-  // getProductDetails(): Observable<Item>{
+  getProductDetails(id: number): Observable<Product>{
+    return of({
+      "id": 1,
+      "name": "Mouse",
+      "description": "Dell mouse",
+      "count": 10,
+      "image": "No image found",
+      "price": 450
+    });
+  }
 
-  // }
-
-  // addProduct(item: Item): Observable<Item>{
+  // addProduct(product: Product): Observable<Product>{
 
   // }
 
@@ -27,7 +34,7 @@ export class ElectronicsService {
 
   // }
 
-  // updateProduct(item: Item): Observable<any>{
-
-  // }
+  updateProduct(product: Product): Observable<any>{
+    return of();
+  }
 }

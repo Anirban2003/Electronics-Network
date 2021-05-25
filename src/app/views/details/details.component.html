@@ -1,1 +1,15 @@
 <h2>Item Details</h2>
+
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <p *ngFor="let field of formfields">
+        <mat-form-field appearance="legacy" disabled=true>
+            <mat-label>{{field[0]}}</mat-label>
+            <input matInput placeholder="Type product {{field[0] | lowercase}}" type="{{field[1]}}" autocomplete="off" formControlName="{{field[0] | lowercase}}" required>
+        </mat-form-field>
+    </p>
+    <p>
+        <button mat-raised-button class="back" (click)="goBack()" type="button">Go Back</button>
+        <button mat-raised-button color="primary" *ngIf="!editable" class="edit" (click)="edit()" type="button">Edit Details</button>
+        <button mat-raised-button color="primary" *ngIf="editable" type="submit" [disabled]="!productForm.valid">Update Details</button>
+    </p>
+</form>

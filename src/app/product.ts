@@ -1,8 +1,8 @@
-export interface Item{
+export interface Product{
     id: number,
     name: string,
     description: string,
-    count: string,
+    count: number,
     image: string,
     price: number
 }
