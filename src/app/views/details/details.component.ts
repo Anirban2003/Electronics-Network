@@ -16,7 +16,11 @@ export class DetailsComponent implements OnInit {
   productForm: any;
   editable: boolean = false;
   formfields: string[][] = [
-    ["Name", "text"], ["Description", "text"], ["Count", "number"], ["Image", "text"], ["Price", "number"]
+    ["Name", "text", ""], 
+    ["Description", "text", ""],
+    ["Count", "number", ""],
+    ["Image", "text", ""], 
+    ["Price", "number", "(Rs)"]
   ];
 
   constructor(
