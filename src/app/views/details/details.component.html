@@ -1,9 +1,9 @@
-<h2>Item Details</h2>
+<h2>Product Details</h2>
 
 <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
     <p *ngFor="let field of formfields">
         <mat-form-field appearance="legacy" disabled=true>
-            <mat-label>{{field[0]}}</mat-label>
+            <mat-label>{{field[0]}}{{field[2]}}</mat-label>
             <input matInput placeholder="Type product {{field[0] | lowercase}}" type="{{field[1]}}" autocomplete="off" formControlName="{{field[0] | lowercase}}" required>
         </mat-form-field>
     </p>
