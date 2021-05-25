@@ -9,6 +9,7 @@ import { MainNavigationComponent } from './feature/main-navigation/main-navigati
 import { LoginComponent } from './views/login/login.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { DetailsComponent } from './views/details/details.component';
+import { AddProductComponent } from './views/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DetailsComponent } from './views/details/details.component';
     MainNavigationComponent,
     LoginComponent,
     DashboardComponent,
-    DetailsComponent
+    DetailsComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
