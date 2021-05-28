@@ -8,7 +8,7 @@ import { catchError, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ElectronicsService {
-  private productsUrl = "http://localhost:5000";
+  private productsUrl = "https://electronics-backend1.herokuapp.com";
   httpOptions = {
     headers: new HttpHeaders({ 
       'Content-Type': 'application/json'
