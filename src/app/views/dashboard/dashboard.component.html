@@ -17,8 +17,8 @@
       <div class="example-element-detail"
            [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
         
-            <button mat-raised-button color="primary" class="btn" ><a [routerLink]="['/product-detail', element.Id]">View</a></button>
-            <button mat-raised-button color="accent" class="btn"><a >Edit</a></button>
+            <button mat-raised-button color="primary" class="btn" [routerLink]="['/product-detail', element.Id]">View</button>
+            <button mat-raised-button color="accent" class="btn" [routerLink]="['/product-detail', element.Id]" [queryParams]="{edit: true}">Edit</button>
             <button mat-raised-button color="warn" class="btn">Delete</button>
       
       </div>
