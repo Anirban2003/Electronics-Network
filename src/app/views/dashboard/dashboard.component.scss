@@ -1,0 +1,85 @@
+table {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  tr.example-detail-row {
+    height: 0;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+  }
+  
+  .example-element-row td {
+    border-bottom-width: 0;
+  }
+  
+  .example-element-detail {
+    overflow: hidden;
+    display: flex;
+  }
+  
+  .example-element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+  }
+  
+  .example-element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+  }
+  
+  .example-element-description {
+    padding: 16px;
+  }
+  
+  .example-element-description-attribution {
+    opacity: 0.5;
+  }
+
+  .add-employee-but  {
+      float: right;
+      background-color: #E5FAF5;
+      color: #00d5c7;
+      font-size: 18px;
+      line-height: 48px;
+
+  }
+  .electronics-details {
+   
+    line-height: 48px;
+    font-size: 18px;
+    font-weight: bold;
+    //min-height: ;
+  }
+  .table-header {
+    
+    //color: white;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #d7d7d7;
+  }
+  .example-element-detail  {
+    margin-top: 20px;
+  }
+  .btn {
+    min-height: 48px;
+    min-width: 150px;
+    margin: 15px;
+    a{
+      color: white;
+      font-size: 16px;
+      font-weight: bolder;
+      text-decoration: none;
+    }
+  }
