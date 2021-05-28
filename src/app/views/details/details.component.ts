@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router  } from '@angular/router';
 import { Location } from '@angular/common';
 import { Product } from '../../product';
 import { ElectronicsService } from '../../services/electronics/electronics.service';
@@ -18,13 +18,13 @@ export class DetailsComponent implements OnInit {
   formfields: string[][] = [
     ["Name", "text", ""], 
     ["Description", "text", ""],
-    ["Count", "number", ""],
-    ["Image", "text", ""], 
+    ["Quantity", "number", ""],
     ["Price", "number", "(Rs)"]
   ];
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private electronicsService: ElectronicsService,
     private location: Location,
     private fb: FormBuilder
@@ -38,8 +38,7 @@ export class DetailsComponent implements OnInit {
     this.productForm = this.fb.group({
       name: [{value: '', disabled: !this.editable}, Validators.required],
       description: [{value: '', disabled: !this.editable}, Validators.required],
-      count: [{value: '', disabled: !this.editable}, Validators.required],
-      image: [{value: '', disabled: !this.editable}, Validators.required],
+      quantity: [{value: '', disabled: !this.editable}, Validators.required],
       price: [{value: '', disabled: !this.editable}, Validators.required]
     });
     this.getProduct();
@@ -49,23 +48,26 @@ export class DetailsComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.electronicsService.getProductDetails(id)
       .subscribe(product => {
-        this.product = product;
-        this.productForm.setValue({
-          name: product.name,
-          description: product.description,
-          count: product.count,
-          image: product.image,
-          price: product.price
-        })
+        if(product.data.length == 0){
+          this.router.navigate(["dashboard"]);
+        }
+        else{
+          this.product = product.data;
+          this.productForm.setValue({
+            name: product.data.name,
+            description: product.data.description,
+            quantity : product.data.quantity,
+            price: product.data.price
+          })
+        }
       });
   }
 
   onSubmit(){
     this.product.name = this.productForm.value.name.trim();
     this.product.description = this.productForm.value.description.trim();
-    this.product.count = this.productForm.value.count;
-    this.product.image = this.productForm.value.image.trim();
-    this.product.price = this.productForm.price;
+    this.product.quantity = this.productForm.value.quantity;
+    this.product.price = this.productForm.value.price;
     this.electronicsService.updateProduct(this.product)
     .subscribe(_ => {
       this.goBack();
