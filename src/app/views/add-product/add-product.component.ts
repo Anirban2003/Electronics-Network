@@ -19,6 +19,7 @@ export class AddProductComponent implements OnInit {
     ["Quantity", "number", ""],
     ["Price", "number", "(Rs)"]
   ];
+  userloader: boolean = false;
 
   constructor(
     private electronicsService: ElectronicsService,
@@ -42,9 +43,10 @@ export class AddProductComponent implements OnInit {
       "quantity": this.productForm.value.quantity,
       "price": this.productForm.value.price
     }
-
+    this.userloader = true;
     this.electronicsService.addProduct(this.product)
       .subscribe((response) => {
+        this.userloader = false;
         this.router.navigate(["dashboard"]);
       })
 
