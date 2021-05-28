@@ -9,6 +9,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxLoadingModule } from 'ngx-loading';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,7 +46,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     MatCardModule,
     MatIconModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxLoadingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
