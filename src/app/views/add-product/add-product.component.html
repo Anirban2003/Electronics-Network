@@ -1,1 +1,15 @@
-<p>add-product works!</p>
+<ngx-loading [show]="userloader" [config]="{fullScreenBackdrop: true }"></ngx-loading>
+<h2>Add New Product</h2>
+
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <p *ngFor="let field of formfields">
+        <mat-form-field appearance="legacy" disabled=true>
+            <mat-label>{{field[0]}}{{field[2]}}</mat-label>
+            <input matInput placeholder="Type product {{field[0] | lowercase}}" type="{{field[1]}}" autocomplete="off" formControlName="{{field[0] | lowercase}}" required>
+        </mat-form-field>
+    </p>
+    <p>
+        <button mat-raised-button class="back" (click)="goBack()" type="button">Go Back</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!productForm.valid">Add New Product</button>
+    </p>
+</form>

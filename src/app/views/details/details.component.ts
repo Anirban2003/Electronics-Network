@@ -21,6 +21,7 @@ export class DetailsComponent implements OnInit {
     ["Quantity", "number", ""],
     ["Price", "number", "(Rs)"]
   ];
+  userloader: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -46,12 +47,15 @@ export class DetailsComponent implements OnInit {
 
   getProduct(){
     const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.userloader = true;
     this.electronicsService.getProductDetails(id)
       .subscribe(product => {
         if(product.data.length == 0){
+          this.userloader = false;
           this.router.navigate(["dashboard"]);
         }
         else{
+          this.userloader = false;
           this.product = product.data;
           this.productForm.setValue({
             name: product.data.name,
@@ -68,9 +72,11 @@ export class DetailsComponent implements OnInit {
     this.product.description = this.productForm.value.description.trim();
     this.product.quantity = this.productForm.value.quantity;
     this.product.price = this.productForm.value.price;
+    this.userloader = true;
     this.electronicsService.updateProduct(this.product)
     .subscribe(_ => {
-      this.goBack();
+      this.userloader = false;
+      this.router.navigate(["dashboard"]);
     });
   }
 
