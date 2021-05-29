@@ -58,22 +58,26 @@ table {
   .electronics-details {
    
     line-height: 48px;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
     //min-height: ;
   }
   .table-header {
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     background-color: #369;
   }
+  .table-data{
+    font-size: 16px;
+    font-weight: 400;
+  }
   .btn {
-    min-height: 48px;
-    min-width: 150px;
+    min-height: 36px;
+    min-width: 100px;
     margin: 15px;
     a{
       color: white;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: bolder;
       text-decoration: none;
     }
