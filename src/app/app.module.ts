@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { MainNavigationComponent } from './feature/main-navigation/main-navigation.component';
+import { AppDialogComponent } from './feature/app-dialog/app-dialog.component';
 import { LoginComponent } from './views/login/login.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { DetailsComponent } from './views/details/details.component';
@@ -32,6 +33,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     DashboardComponent,
     DetailsComponent,
     AddProductComponent,
+    AppDialogComponent,
     
   ],
   imports: [

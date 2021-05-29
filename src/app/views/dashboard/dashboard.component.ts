@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { ElectronicsService } from '../../services/electronics/electronics.service';
+import { AppDialogComponent } from '../../feature/app-dialog/app-dialog.component';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -14,38 +16,42 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
   ],
 })
 export class DashboardComponent implements OnInit {
-  dataSource = ELEMENT_DATA;
-  columnsToDisplay = ['Id', 'ItemName', 'Quantity', 'Price'];
-  expandedElement!: PeriodicElement | null;
+  dataSource : any;
+  columnsToDisplay = ['id', 'name', 'description', 'quantity','price'];
+  expandedElement: any;
   
 
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    public dialog: MatDialog,
+    private electronicsService: ElectronicsService,
+    ) {}
 
   ngOnInit(): void {
+    this.getAllProduct();
+  }
+  
+  getAllProduct() {
+    this.electronicsService.getProducts().subscribe(product=>{
+      
+      this.dataSource=product.data;
+      this.expandedElement= product.data;
+
+      console.log( this.dataSource);
+    })
   }
 
+  openDialog(id:any) {
+    const dialogRef = this.dialog.open(AppDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      //console.log(`Dialog result: ${result}`);
+       if(result==true){
+         this.electronicsService.deleteProduct(id).subscribe(res => {
+          if(res.success==true) {
+            this.getAllProduct();
+          }
+         })
+       }
+    });
+  }
 }
 
-export interface PeriodicElement {
-  Id: number;
-  ItemName: string;
-  position: number;
-  Quantity: number;
-  Price: number;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {
-    position: 1,
-    Id: 1,
-    ItemName: 'Mouse',
-    Quantity: 10,
-    Price: 300,
-  },{
-    position: 2,
-    Id: 2,
-    ItemName: 'Key Board',
-    Quantity: 10,
-    Price: 300
-  },
-];
