@@ -4,7 +4,7 @@
   
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close style="border: 1px solid blue">{{data.primaryButtonText}}</button>
+  <button mat-button mat-raised-button color="primary" mat-dialog-close>{{data.primaryButtonText}}</button>
   <button *ngIf="data.secondaryButtonRequired" mat-button mat-raised-button color="warn" [mat-dialog-close]="true" cdkFocusInitial>{{data.secondaryButtonText}}</button>
 </mat-dialog-actions>
 </div>
