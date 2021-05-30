@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthgaurdService } from './services/authgaurd.service';
+import { AuthgaurdService } from './services/authgaurd/authgaurd.service';
 import { AddProductComponent } from './views/add-product/add-product.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { DetailsComponent } from './views/details/details.component';
