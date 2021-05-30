@@ -4,6 +4,8 @@ import { ElectronicsService } from '../../services/electronics/electronics.servi
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
+import { AppDialogComponent } from 'src/app/feature/app-dialog/app-dialog.component';
 
 @Component({
   selector: 'app-add-product',
@@ -25,7 +27,8 @@ export class AddProductComponent implements OnInit {
     private electronicsService: ElectronicsService,
     private router: Router,
     private location: Location,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.productForm = this.fb.group({
@@ -47,7 +50,16 @@ export class AddProductComponent implements OnInit {
     this.electronicsService.addProduct(this.product)
       .subscribe((response) => {
         this.loader = false;
-        this.router.navigate(["dashboard"]);
+        const dialogRef = this.dialog.open(AppDialogComponent, {
+          data: {
+            title: "Product added successfully",
+            secondaryButtonRequired: false,
+            primaryButtonText: "OK"
+          }
+        });
+        dialogRef.afterClosed().subscribe(() => {
+          this.router.navigate(["dashboard"]);
+        });
       })
 
   }

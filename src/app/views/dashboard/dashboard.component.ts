@@ -39,12 +39,19 @@ export class DashboardComponent implements OnInit {
 
       this.loader = false;
 
-      console.log( this.dataSource);
+      // console.log( this.dataSource);
     })
   }
 
   openDialog(id:any) {
-    const dialogRef = this.dialog.open(AppDialogComponent);
+    const dialogRef = this.dialog.open(AppDialogComponent, {
+      data: {
+        title: "Are you sure that you want to delete this item?",
+        secondaryButtonRequired: true,
+        primaryButtonText: "Cancel",
+        secondaryButtonText: "Delete"
+      }
+    });
     dialogRef.afterClosed().subscribe(result => {
       //console.log(`Dialog result: ${result}`);
        if(result==true){

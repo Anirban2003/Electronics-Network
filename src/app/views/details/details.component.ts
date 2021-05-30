@@ -5,6 +5,8 @@ import { Product } from '../../product';
 import { ElectronicsService } from '../../services/electronics/electronics.service';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import {MatDialog} from '@angular/material/dialog';
+import { AppDialogComponent } from 'src/app/feature/app-dialog/app-dialog.component';
 
 @Component({
   selector: 'app-details',
@@ -28,7 +30,8 @@ export class DetailsComponent implements OnInit {
     private router: Router,
     private electronicsService: ElectronicsService,
     private location: Location,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -76,7 +79,16 @@ export class DetailsComponent implements OnInit {
     this.electronicsService.updateProduct(this.product)
     .subscribe(_ => {
       this.loader = false;
-      this.router.navigate(["dashboard"]);
+      const dialogRef = this.dialog.open(AppDialogComponent, {
+        data: {
+          title: "Product details updated successfully",
+          secondaryButtonRequired: false,
+          primaryButtonText: "OK"
+        }
+      });
+      dialogRef.afterClosed().subscribe(() => {
+        this.router.navigate(["dashboard"]);
+      });
     });
   }
 
