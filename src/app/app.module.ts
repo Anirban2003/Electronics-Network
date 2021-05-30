@@ -22,6 +22,7 @@ import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { DetailsComponent } from './views/details/details.component';
 import { AddProductComponent } from './views/add-product/add-product.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { TextTransformPipe } from './feature/text-transform/text-transform.pipe';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     DetailsComponent,
     AddProductComponent,
     AppDialogComponent,
+    TextTransformPipe,
     
   ],
   imports: [
