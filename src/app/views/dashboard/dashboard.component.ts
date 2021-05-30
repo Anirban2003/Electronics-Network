@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
   dataSource : any;
   columnsToDisplay = ['id', 'name', 'description', 'quantity','price'];
   expandedElement: any;
-  
+  loader: boolean = false;
 
   constructor(
     public dialog: MatDialog,
@@ -31,10 +31,13 @@ export class DashboardComponent implements OnInit {
   }
   
   getAllProduct() {
+    this.loader = true;
     this.electronicsService.getProducts().subscribe(product=>{
       
       this.dataSource=product.data;
       this.expandedElement= product.data;
+
+      this.loader = false;
 
       console.log( this.dataSource);
     })
