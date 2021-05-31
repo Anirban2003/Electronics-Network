@@ -16,6 +16,8 @@ export class LoginService {
 
   // Make this false when login implemented
   isLoggedIn: boolean = true;
+  name!: string;
+
 
   constructor(private http: HttpClient) { }
 
@@ -25,8 +27,9 @@ export class LoginService {
       tap((res) => {
         if(res.success == true){
           this.isLoggedIn = true;
+          this.name = res.name;
         }
-        console.log(`Login verification successfull`);
+        console.log(`Login verification successful`);
       }),
       catchError(this.handleError<any>('loginUser'))
     );
