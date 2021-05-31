@@ -15,7 +15,7 @@ export class LoginService {
   };
 
   // Make this false when login implemented
-  isLoggedIn: boolean = true;
+  isLoggedIn: boolean = false;
   name!: string;
 
 
