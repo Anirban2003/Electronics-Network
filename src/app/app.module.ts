@@ -24,6 +24,7 @@ import { DetailsComponent } from './views/details/details.component';
 import { AddProductComponent } from './views/add-product/add-product.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { TextTransformPipe } from './feature/text-transform/text-transform.pipe';
+import { HomeComponent } from './views/home/home.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { TextTransformPipe } from './feature/text-transform/text-transform.pipe'
     AddProductComponent,
     AppDialogComponent,
     TextTransformPipe,
+    HomeComponent,
     
   ],
   imports: [
