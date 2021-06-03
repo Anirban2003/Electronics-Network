@@ -1,4 +1,5 @@
 <ngx-loading [show]="loader" [config]="{fullScreenBackdrop: true }"></ngx-loading>
+<div class="container">
   <app-header></app-header>
 <mat-card class="electronics-details">Electronics Details
     
@@ -44,3 +45,5 @@
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>
 </mat-card>
+<app-footer></app-footer>
+</div>

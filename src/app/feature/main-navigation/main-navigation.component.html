@@ -9,12 +9,15 @@
         </div>
         <div class="nav-links">
             <ul>
-                <li><a [routerLink]="['/home']">Home</a></li>
-                <li><a [routerLink]="['/dashboard']">Dashboard</a></li>
-                <li><a [routerLink]="['/add-product']">Add Product</a></li>
+                <li><a [routerLink]="['/home']" routerLinkActive="active">Home</a></li>
+                <li><a [routerLink]="['/dashboard']" routerLinkActive="active">Dashboard</a></li>
+                <li><a [routerLink]="['/add-product']" routerLinkActive="active">Add Product</a></li>
                 
             </ul>
-             <button type="button" class="signOut-btn">Sign Out</button>
+            <div class="right-items">
+                <span class="name"> Hi, {{name}}</span>
+                <div type="button" class="signOut-btn" (click)="logOut()">Sign Out</div>
+            </div>
         </div>
     </div>
        

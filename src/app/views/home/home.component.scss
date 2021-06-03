@@ -1,0 +1,24 @@
+.hero{
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.6)),url('../../../assets/electronic-home.jpg');
+    background-position: center;
+    background-size: cover;
+    overflow-x: hidden;
+    position: relative;
+    margin-top: -15px;
+    margin-bottom: -90px;
+}
+.banner-title{
+    margin: 80px 130px;
+    color: #fff;
+}
+.banner-title h3{
+    font-size: 64px;
+    margin-bottom: 30px;;
+}
+.banner-title h3 span{
+    color: yellow;
+}
+.container{
+    height: 100vh;
+}
