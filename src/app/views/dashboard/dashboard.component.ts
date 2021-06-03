@@ -22,7 +22,9 @@ export class DashboardComponent implements OnInit {
   columnsToDisplay = ['id', 'name', 'description', 'quantity','price'];
   expandedElement: any;
   loader: boolean = false;
-  oldProduct! :Product[]
+  oldProduct! :Product[];
+  noData: boolean = false;
+  noServiceData: boolean = false;
 
   constructor(
     public dialog: MatDialog,
@@ -36,14 +38,22 @@ export class DashboardComponent implements OnInit {
   getAllProduct() {
     this.loader = true;
     this.electronicsService.getProducts().subscribe(product=>{
-      
-      this.oldProduct = product.data;
-      this.dataSource=new MatTableDataSource(this.oldProduct);
-      this.expandedElement= product.data;
-      
+      console.log(product);
+      if (product != undefined) {
+        this.oldProduct = product.data;
+        this.dataSource=new MatTableDataSource(this.oldProduct);
+        this.expandedElement= product.data;
+        this.loader = false;
+        this.noServiceData = this.oldProduct.length ? false : true;
 
-      this.loader = false;
+      }
+      else {
+        this.loader = false;
+        this.noServiceData = true;
 
+      }
+  
+      
       // console.log( this.dataSource);
     })
   }
@@ -62,7 +72,8 @@ export class DashboardComponent implements OnInit {
          this.electronicsService.deleteProduct(prod.id).subscribe(res => {
           if(res.success==true) {
             this.oldProduct=this.oldProduct.filter((t)=>t.id != prod.id);
-            this.dataSource = this.oldProduct;
+            this.dataSource = new MatTableDataSource(this.oldProduct);
+            this.noServiceData = this.oldProduct.length ? false : true;
           }
          })
        }
@@ -72,10 +83,9 @@ export class DashboardComponent implements OnInit {
   applyFilter(event: Event) {
 
     const filterValue = (event.target as HTMLInputElement).value;
-    console.log(filterValue);
-    console.log(this.dataSource);
     this.dataSource.filter = filterValue.trim().toLowerCase();
-    console.log(this.dataSource.filter);
+    this.noData = this.dataSource.filteredData.length ? false : true;
+    
   }
 }
 
