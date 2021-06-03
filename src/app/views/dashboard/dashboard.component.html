@@ -2,12 +2,15 @@
 <div class="container">
   <app-header></app-header>
   <mat-card class="electronics-details">Electronics Details
-
+    
     <div class="search-data">
       <mat-form-field>
 
         <input matInput (keyup)="applyFilter($event)" placeholder="Enter item to be searched" autocomplete="off" #input>
       </mat-form-field>
+    </div>
+    <div class="count">
+      Total Count: {{count}}
     </div>
 
     <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8 ">
@@ -38,6 +41,8 @@
       </tr>
       <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
     </table>
+
+    
 
     <div class="no-search-data no-data" *ngIf="noData">
       <div class="no-data-text">No data matching the filter "{{input.value}}"</div>

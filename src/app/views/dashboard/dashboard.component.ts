@@ -25,6 +25,7 @@ export class DashboardComponent implements OnInit {
   oldProduct! :Product[];
   noData: boolean = false;
   noServiceData: boolean = false;
+  count: any = 0;
 
   constructor(
     public dialog: MatDialog,
@@ -41,6 +42,7 @@ export class DashboardComponent implements OnInit {
       console.log(product);
       if (product != undefined) {
         this.oldProduct = product.data;
+        this.count = product.data.length;
         this.dataSource=new MatTableDataSource(this.oldProduct);
         this.expandedElement= product.data;
         this.loader = false;
@@ -74,6 +76,7 @@ export class DashboardComponent implements OnInit {
             this.oldProduct=this.oldProduct.filter((t)=>t.id != prod.id);
             this.dataSource = new MatTableDataSource(this.oldProduct);
             this.noServiceData = this.oldProduct.length ? false : true;
+            this.count = this.oldProduct.length;
           }
          })
        }
@@ -85,7 +88,7 @@ export class DashboardComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
     this.noData = this.dataSource.filteredData.length ? false : true;
-    
+    this.count = this.dataSource.filteredData.length;
   }
 }
 
