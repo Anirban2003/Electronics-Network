@@ -10,11 +10,11 @@ import { LoginComponent } from './views/login/login.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  {path: 'home', component: HomeComponent, canActivate:[AuthgaurdService]},
+  { path: 'home', component: HomeComponent, canActivate:[AuthgaurdService]},
   { path: 'dashboard', component: DashboardComponent, canActivate:[AuthgaurdService] },
   { path: 'product-detail/:id', component: DetailsComponent, canActivate:[AuthgaurdService]  },
   { path: 'add-product', component: AddProductComponent, canActivate:[AuthgaurdService]  },
-  { path: '**', redirectTo: '/login' },
+  { path: '**', redirectTo: '/dashboard' },
 ];
 
 @NgModule({
