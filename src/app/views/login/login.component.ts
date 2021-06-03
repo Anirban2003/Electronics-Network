@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login/login.service';
 import { Router } from '@angular/router';
+import { AppDialogComponent } from 'src/app/feature/app-dialog/app-dialog.component';
 
 
 @Component({
@@ -24,7 +25,7 @@ password : any="";
     .subscribe((res) => {
       if(res.success == true){
         console.log("Login Successfull");
-        this.router.navigate(["dashboard"]);
+        this.router.navigate(["home"]);
       }
       else
       console.log("Login failed");
