@@ -83,7 +83,9 @@ table {
     }
   }
   .search-data {
-    margin-top: 20px;
+    margin-top: -10px !important;
+    float: right;
+    width: 225px;
     .mat-form-field{
       font-size: 16px;
       line-height: 26px;

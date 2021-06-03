@@ -16,16 +16,22 @@
 
 .nav-bar{
     display: flex;
-    padding: 40px 120px;
+    padding: 18px;
+    background-color: #369;
+    margin-bottom: 15px;
 }
 
 .nav-logo img{
-    width: 135px;
+    width: 50px;
+    height: 50px;
 }
-
+.nav-links{
+    width: 100%;
+}
 .nav-links ul{
     margin-left: 80px;
     display: inline;
+    margin-top: 5px;
 }
 .nav-links ul li{
     list-style: none;
@@ -33,15 +39,17 @@
     padding: 8px 25px;
 }
 .nav-links ul li a{
-    color: #fff;
+    font-size: 16px;
+    color: white;
     text-decoration: none;
-    font-size: 13px;
+    font-weight: bold;
+    
 }
 .nav-links ul li::after{
     content: '';
     width: 0;
     height: 2px;
-    background: yellow;
+    background: white;
     display: block;
     margin: auto;
     transition: 0.3s;
@@ -49,12 +57,13 @@
 .nav-links ul li:hover::after{
     width: 100%;
 }
-.btn{
+.signOut-btn{
     padding: 10px 20px;
     border: 0;
-    background: yellow;
+    background: white;
     font-weight: bold;
     cursor: pointer;
+    float: right;
 }
 .nav-links .btn{
     float: right;

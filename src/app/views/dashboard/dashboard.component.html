@@ -1,22 +1,15 @@
 <ngx-loading [show]="loader" [config]="{fullScreenBackdrop: true }"></ngx-loading>
+  <app-header></app-header>
 <mat-card class="electronics-details">Electronics Details
-    <button mat-button color="primary" class="add-employee-but" [routerLink]="['/add-product']">
-        <mat-icon>person_add</mat-icon> Add Data
-      </button>
+    
       <div class="search-data">
-        <div class="row">
-          <div class="col-sm-4">
-            <h5 style="margin-top:15px">Electronics Table Data</h5>
-          </div>
-          <div class="col-sm-8">
-            <mat-form-field>
+         <mat-form-field>
                 
                 <input matInput (keyup)="applyFilter($event)" placeholder="Enter item to be search" #input>
             </mat-form-field>
-          </div>
         </div>
-      </div>
-      
+     
+     
   
     
 
