@@ -38,6 +38,13 @@
       </tr>
       <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
     </table>
+
+    <div class="no-search-data no-data" *ngIf="noData">
+      <div class="no-data-text">No data matching the filter "{{input.value}}"</div>
+    </div>
+    <div class="no-service-data no-data" *ngIf="noServiceData">
+      <div class="no-data-text">No data available</div>
+    </div>
   </mat-card>
   <app-footer></app-footer>
 </div>
