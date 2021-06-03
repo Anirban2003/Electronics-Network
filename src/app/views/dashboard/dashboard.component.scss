@@ -82,3 +82,17 @@ table {
       text-decoration: none;
     }
   }
+  .search-data {
+    margin-top: -10px !important;
+    float: right;
+    width: 225px;
+    .mat-form-field{
+      font-size: 16px;
+      line-height: 26px;
+      width: 80%;
+      //border: 1px solid #d7d7d7;
+    }
+    input {
+      width: 100%;
+    }
+  }

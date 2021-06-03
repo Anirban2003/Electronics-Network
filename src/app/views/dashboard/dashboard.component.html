@@ -1,8 +1,17 @@
 <ngx-loading [show]="loader" [config]="{fullScreenBackdrop: true }"></ngx-loading>
+  <app-header></app-header>
 <mat-card class="electronics-details">Electronics Details
-    <button mat-button color="primary" class="add-employee-but" [routerLink]="['/add-product']">
-        <mat-icon>person_add</mat-icon> Add Data
-      </button>
+    
+      <div class="search-data">
+         <mat-form-field>
+                
+                <input matInput (keyup)="applyFilter($event)" placeholder="Enter item to be search" #input>
+            </mat-form-field>
+        </div>
+     
+     
+  
+    
 
 <table mat-table
        [dataSource]="dataSource" multiTemplateDataRows
@@ -20,7 +29,7 @@
         
             <button mat-raised-button color="primary" class="btn" [routerLink]="['/product-detail', element.id]">View</button>
             <button mat-raised-button color="accent" class="btn" [routerLink]="['/product-detail', element.id]" [queryParams]="{edit: true}">Edit</button>
-            <button mat-raised-button color="warn" class="btn" (click)="openDialog(element.id)">Delete</button>
+            <button mat-raised-button color="warn" class="btn" (click)="openDialog(element)">Delete</button>
       
       </div>
     </td>
