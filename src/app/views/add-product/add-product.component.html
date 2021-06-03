@@ -1,20 +1,22 @@
 <ngx-loading [show]="loader" [config]="{fullScreenBackdrop: true }"></ngx-loading>
 <div class="container">
-<app-header></app-header>
+    <app-header></app-header>
 
-<h2>Add New Product</h2>
+    <div class="add-product">
+        <h2>Add New Product</h2>
 
-<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-    <p *ngFor="let field of formfields">
-        <mat-form-field appearance="legacy" disabled=true>
-            <mat-label>{{field[0]}}{{field[2]}}</mat-label>
-            <input matInput placeholder="Type product {{field[0] | lowercase}}" type="{{field[1]}}" autocomplete="off" formControlName="{{field[0] | lowercase}}" required>
-        </mat-form-field>
-    </p>
-    <p>
-        <button mat-raised-button class="back" (click)="goBack()" type="button">Go Back</button>
-        <button mat-raised-button color="primary" type="submit" [disabled]="!productForm.valid">Add New Product</button>
-    </p>
-</form>
-<app-footer></app-footer>
+        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+            <p *ngFor="let field of formfields">
+                <mat-form-field appearance="legacy" disabled=true>
+                    <mat-label>{{field[0]}}{{field[2]}}</mat-label>
+                    <input matInput placeholder="Type product {{field[0] | lowercase}}" type="{{field[1]}}" autocomplete="off" formControlName="{{field[0] | lowercase}}" required>
+                </mat-form-field>
+            </p>
+            <p>
+                <button mat-raised-button class="back" (click)="goBack()" type="button">Go Back</button>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!productForm.valid">Add New Product</button>
+            </p>
+        </form>
+    </div>
+    <app-footer></app-footer>
 </div>
